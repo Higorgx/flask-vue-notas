@@ -22,22 +22,24 @@ def post_numbers():
     post_data = request.get_json()
     numbers = post_data
     global NUMBERS
-    NUMBERS = post_data.get('numbers')
-    soma = getSum()
-    return jsonify(numbers)
+    NUMBERS = post_data.get("numbers")
 
-
-def getSum():
-    valor = 0
     soma = 0
-    global NUMBERS
-    print(len(NUMBERS))
-    while valor < len(NUMBERS):
-        print(NUMBERS)
-        soma = NUMBERS[valor] + soma
-        valor = valor + 1 
-    print(soma)
+    for i in range(0,len(NUMBERS)):
+        soma = soma + NUMBERS[i]
     
+    media = soma/len(NUMBERS)
+
+    
+
+    response_object = {'Qtd. Números':len(NUMBERS), 'Ordem':NUMBERS, 
+    'Ordem Inversa':list(reversed(NUMBERS)), 'Soma dos Números':soma, 'Média dos Números': media }
+
+
+    
+    return jsonify(response_object)
+
+
 
 if __name__ == '__main__':
     app.run()
