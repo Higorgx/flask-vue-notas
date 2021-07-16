@@ -19,6 +19,7 @@ def get_result():
 
 @app.route('/numbers', methods=['POST'])
 def post_numbers():
+    VALMEDIA = []
     post_data = request.get_json()
     numbers = post_data
     global NUMBERS
@@ -29,11 +30,17 @@ def post_numbers():
         soma = soma + NUMBERS[i]
     
     media = soma/len(NUMBERS)
+    print('oi',media)
+    for i in range(0,len(NUMBERS)):
+        if NUMBERS[i] > media:
+            VALMEDIA.append(NUMBERS[i])
+            print(VALMEDIA)
+
 
     
 
     response_object = {'Qtd. Números':len(NUMBERS), 'Ordem':NUMBERS, 
-    'Ordem Inversa':list(reversed(NUMBERS)), 'Soma dos Números':soma, 'Média dos Números': media }
+    'Ordem Inversa':list(reversed(NUMBERS)), 'Soma dos Números':soma, 'Média dos Números': media, 'Valores acima da média': media }
 
 
     
