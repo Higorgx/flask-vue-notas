@@ -23,7 +23,21 @@ def post_numbers():
     numbers = post_data
     global NUMBERS
     NUMBERS = post_data.get('numbers')
+    soma = getSum()
     return jsonify(numbers)
+
+
+def getSum():
+    valor = 0
+    soma = 0
+    global NUMBERS
+    print(len(NUMBERS))
+    while valor < len(NUMBERS):
+        print(NUMBERS)
+        soma = NUMBERS[valor] + soma
+        valor = valor + 1 
+    print(soma)
+    
 
 if __name__ == '__main__':
     app.run()
