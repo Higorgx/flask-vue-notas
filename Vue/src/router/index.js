@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Ping from '../components/Interrogatorio.vue';
+import Ping from '../components/Notas.vue';
 
 Vue.use(Router);
 
@@ -10,7 +10,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Interrogatorio',
+      name: 'Notas',
       component: Ping,
     },
   ],
