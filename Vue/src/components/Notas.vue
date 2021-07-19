@@ -115,6 +115,7 @@ export default {
     resetQuest() {
       this.questFinish = false;
       this.questStart = true;
+      this.reset();
     },
     reset() {
       this.finished = false;
